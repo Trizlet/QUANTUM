@@ -5,11 +5,15 @@ from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
 
 # CONFIG
 
-total_bits = 8
+total_bits = 127
 Sim = True
 Simple_Measure = True
 Optimization_Level = 3
-Circuit_Diagram = 3
+Circuit_Diagram = 0
+
+if total_bits > 127:
+    print("invalid bit length! free QPU limited to 127 qubits.")
+    quit()
 
 # Create qiskit service and backend
 
